@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
 
 export default class GifListContainer extends Component {
-  generateListItem(image) {
+  generateListItem = (image) => {
     return <li><img src={image} alt="" /></li>
   }
-  generateList() {
-    this.props.images.map(generateListItem)
+  generateList = () => {
+    return this.props.images.map(this.generateListItem)
   }
 
   render() {
     return (
       <ul>
-        {this.generateList}
+        {this.generateList()}
       </ul>
     )
   }

@@ -9,12 +9,12 @@ export default class GifListContainer extends Component {
   state = {
     gifs: []
   }
-  handleSearch(searchQuery) {
+  handleSearch = searchQuery => {
     fetch(BASE_URL + searchQuery + URL_AFFIX)
       .then(resp => resp.json())
       .then(json => {
         this.setState({
-          gifs: json.images.map(image => image.original.url).first(3)
+          gifs: json.data.map(image => image.images.original.url).slice(0, 3)
         })
       })
   }

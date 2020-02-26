@@ -11,15 +11,16 @@ export default class GifSearch extends Component {
     })
   }
 
-  handleSubmit = () => {
-    this.props.handleSearch(this.state.searchQuery)
+  handleSubmit = e => {
+    e.preventDefault()
+    this.props.handleSearchQuery(this.state.searchQuery)
   }
 
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit} >
         <input type="text" value={this.state.searchQuery} onChange={this.handleSearchChange} />
-        <input type="submit" value="Search" onSubmit={this.handleSubmit} />
+        <input type="submit" value="Search" />
       </form>
     )
   }
